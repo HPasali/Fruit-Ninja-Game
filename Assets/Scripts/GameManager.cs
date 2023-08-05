@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         blade.enabled = true;
         spawner.enabled = true;
 
+        // Before starting new game if fruits or bombs existing on the scene they will be destroyed.
         Fruit[] existedFruits = FindObjectsOfType<Fruit>();
         Bomb[] existedBombs = FindObjectsOfType<Bomb>();
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
 
         score = 0;
         scoreText.text = score.ToString();
+        // timeScale helps to manage the time flow of the game.
         Time.timeScale = 1.0f;        
     }
 
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         if (score > PlayerPrefs.GetInt("HighScore", 0))
         {
+            //PlayerPrefs is used for storing the best score of the user.
             PlayerPrefs.SetInt("HighScore", score);
             highScoreText.text = "Best Score: " + PlayerPrefs.GetInt("HighScore", score).ToString();
         }
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ExplosionSequence());
     }
 
+    // IEnumerators are used for starting coroutines in game.
     public IEnumerator ExplosionSequence()
     {
         float elapsed = 0.0f;

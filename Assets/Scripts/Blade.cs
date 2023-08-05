@@ -35,6 +35,7 @@ public class Blade : MonoBehaviour
         }
     }
 
+    // OnEnable() provides to add functions to gameobject while object active status is transform from passive(false) to active(true).
     private void OnEnable()
     {
         StopSlicing();
@@ -47,6 +48,7 @@ public class Blade : MonoBehaviour
 
     public void StartSlicing()
     {
+        // The position of blade is taken from clicked point on the screen.
         Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0.0f;
         transform.position = newPosition;
