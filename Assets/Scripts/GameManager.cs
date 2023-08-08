@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
         gameManagerAudioSource = GetComponent<AudioSource>();
-        highScoreText.text = "BestScore: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+        highScoreText.text = "Best Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
     private void Start()
     {
